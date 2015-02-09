@@ -1,5 +1,17 @@
- Rails.application.routes.draw do
-    resources :products
+Rainforest::Application.routes.draw do
+  resources :products
+  resources :users, only: [:new, :create]
+
+ 
+end
+
+
+ #Rails.application.routes.draw do
+  #get 'users/new'
+
+  #get 'users/create'
+
+    #resources :products
 
   # get 'products/index'
 
@@ -65,4 +77,4 @@
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+

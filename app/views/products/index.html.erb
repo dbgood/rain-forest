@@ -5,6 +5,5 @@
 <% @products.each do |product| %>
 <p><%= link_to product.name, product_path(product) %></p>
 <p><%= product.description %></p>
-<p><%= product.price_in_cents %></p>
-<p><%= @product.formatted_price %>, <%= @product.display_product_correct_price %></p>
+<p><%= product.formatted_price %></p>
 <% end %>
