@@ -14,15 +14,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
-  $.getScript('/products?search=' + searchValue);
-   });
-
-  $(window).scroll(function() {
-    var url = $('.pagination span.next').children().attr('href');
-    if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 200) {
-      $('.pagination').text("Fetching more products...");
-			$.getScript(url);
-    }
-  });
- });

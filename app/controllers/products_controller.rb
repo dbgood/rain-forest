@@ -2,18 +2,16 @@ class ProductsController < ApplicationController
 
 	def index
 
-		  @products = Product.order('products.created_at DESC').page(params[:page])
-
-		if params[:search]
-			@products = Product.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
+		@products = if params[:search]
+			 Product.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%").page(params[:page])
 		else
-			@products = Product.all.page(params[:page])
-
+			Product.all.page(params[:page])
 		end
 
-		if request.xhr?
-			render @products
-		end
+		 respond_to do |format|
+      format.html
+      format.js
+    end
 	end
 
 
@@ -22,6 +20,7 @@ class ProductsController < ApplicationController
 
 		if current_user
 			@review =@product.reviews.build
+			#@review = Review.new(product: @product)
 		end
 	end
 

@@ -7,15 +7,14 @@
 <% end %>
 
 <!-- renders a helpful message with numbers of displayed vs. total entries -->
-<p id="products-count"><%= page_entries_info @products %></p>
-
+<h3><small><%= page_entries_info @products %></small></h3>
 
 <div id="products">
 <%= render @products %>
 </div>
 
 <!-- outputs several pagination links such as « First ‹ Prev ... 2 3 4 5 6 7 8 9 10 ... Next › Last » -->
-<p id="products-pagination"><%= paginate @products %></p>
+<%= paginate @products %>
 
 
 
